@@ -28,7 +28,7 @@ internal fun <T : Any> Query<T>.asFlow(): Flow<Query<T>> = flow {
 
     val listener = object : Query.Listener {
         override fun queryResultsChanged() {
-//            channel.offer(Unit)
+            channel.offer(Unit)
         }
     }
 
