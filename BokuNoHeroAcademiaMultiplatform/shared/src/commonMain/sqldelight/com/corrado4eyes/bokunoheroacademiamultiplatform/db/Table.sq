@@ -1,0 +1,15 @@
+CREATE TABLE BNHACharacter (
+id TEXT NOT NULL PRIMARY KEY,
+name TEXT NOT NULL,
+image TEXT NOT NULL,
+category TEXT NOT NULL,
+characterClass TEXT NOT NULL,
+quirk TEXT NOT NULL
+);
+
+getAll:
+SELECT * FROM BNHACharacter;
+
+insertCharacter:
+INSERT OR REPLACE INTO BNHACharacter(id, name, image, category, characterClass, quirk)
+VALUES (?, ?, ?, ?, ?, ?);

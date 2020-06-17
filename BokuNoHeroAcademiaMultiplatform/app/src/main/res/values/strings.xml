@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">BokuNoHeroAcademiaMultiplatform</string>
+    <string name="name">Name: </string>
+    <string name="characterClass">Class: </string>
+    <string name="category">Category: </string>
+    <string name="quirk">Quirk: </string>
+</resources>
