@@ -26,9 +26,9 @@ The approach to kmp used in this project is the same used by [KaMPKit](https://g
 ### Useful links
 Link I used to learn Kmp way:
 ###### Git repo
-https://github.com/touchlab/KaMPKit
-https://github.com/splendo/kaluga
-https://github.com/AAkira/Kotlin-Multiplatform-Libraries
+[KaMPKit](https://github.com/touchlab/KaMPKit)
+[Kaluga](https://github.com/splendo/kaluga)
+[Kotlin-Multiplatform-Libraries](https://github.com/AAkira/Kotlin-Multiplatform-Libraries)
 ###### KotlinLang courses
 https://play.kotlinlang.org/hands-on/Targeting%20iOS%20and%20Android%20with%20Kotlin%20Multiplatform/01_Introduction
 https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html
