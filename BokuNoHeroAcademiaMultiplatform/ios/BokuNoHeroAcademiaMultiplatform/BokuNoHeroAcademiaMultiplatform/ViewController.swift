@@ -22,9 +22,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.animeCharacterModel.getCharactersList()
-
         syncDown()
+        self.animeCharacterModel.getCharactersList()
     }
     
     private func syncDown() {
@@ -32,7 +31,7 @@ class ViewController: UIViewController {
     }
     
     private func viewUpdate(characters: [BNHACharacterResponse]) {
-        characters.forEach { [weak self] el in
+        characters.forEach { el in
             print(el.id, el.name, el.category, el.characterClass, el.quirk)
         }
     }

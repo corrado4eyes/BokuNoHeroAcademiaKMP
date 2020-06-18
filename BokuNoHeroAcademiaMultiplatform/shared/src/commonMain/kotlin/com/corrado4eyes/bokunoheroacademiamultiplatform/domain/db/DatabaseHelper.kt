@@ -20,7 +20,7 @@ class DatabaseHelper(sqlDriver: SqlDriver,
             .mapToList()
             .flowOn(backgroundDispatcher)
 
-    suspend fun insertBreeds(bnhaCharacter: List<BNHACharacterResponse>) {
+    suspend fun insertCharacter(bnhaCharacter: List<BNHACharacterResponse>) {
         dbRef.transactionWithContext(backgroundDispatcher) {
             bnhaCharacter.forEach { character ->
                 dbRef.tableQueries.insertCharacter(

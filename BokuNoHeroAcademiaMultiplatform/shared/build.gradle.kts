@@ -105,7 +105,11 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization-native:1.3.2")
 
                 // Coroutines
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.5")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.5-native-mt") {
+                    version {
+                        strictly("1.3.5-native-mt")
+                    }
+                }
 
                 // SqlDelight
                 implementation("com.squareup.sqldelight:native-driver:$sqlDelightVersion")
