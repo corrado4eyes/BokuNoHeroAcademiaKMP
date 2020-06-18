@@ -10,6 +10,7 @@ import com.corrado4eyes.bokunoheroacademiamultiplatform.databinding.ActivityHome
 import com.corrado4eyes.bokunoheroacademiamultiplatform.ui.adapters.CharactersListAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.KoinComponent
@@ -58,5 +59,10 @@ class HomeActivity : AppCompatActivity(), KoinComponent, CoroutineScope by MainS
         homeViewModel.charactersList.observe(this, Observer {
             charactersListAdapter.updateCharacters(it)
         })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        cancel()
     }
 }
