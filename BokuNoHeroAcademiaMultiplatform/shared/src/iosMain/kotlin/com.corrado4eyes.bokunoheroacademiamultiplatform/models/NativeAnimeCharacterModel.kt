@@ -22,7 +22,7 @@ class NativeAnimeCharacterModel(
 
     private val ktorApi: BokuNoHeroAcademiaApi by inject()
     private val dbHelper: DatabaseHelper by inject()
-//    private val scope = MainScope(Dispatchers.Main)
+    private val scope = MainScope(Dispatchers.Main)
 
     private val animeCharacterModel: AnimeCharacterModel = AnimeCharacterModel(ktorApi, dbHelper)
 
@@ -30,7 +30,7 @@ class NativeAnimeCharacterModel(
         ensureNeverFrozen()
     }
 
-    fun getCharactersList() = runBlocking {
+    fun getCharactersList() = scope.launch {
         animeCharacterModel.getAll().collect { it ->
             val charactersList = it.map { el: BNHACharacter ->
                 BNHACharacterResponse(el.id,
@@ -45,7 +45,8 @@ class NativeAnimeCharacterModel(
         }
     }
 
-    fun syncDown() = runBlocking {
+    fun syncDown() = scope.launch {
         animeCharacterModel.syncDown()
     }
+
 }
