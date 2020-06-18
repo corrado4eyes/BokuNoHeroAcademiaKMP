@@ -12,8 +12,6 @@ import kotlinx.coroutines.flow.*
 import org.koin.core.parameter.parametersOf
 import org.koin.core.inject
 import co.touchlab.stately.ensureNeverFrozen
-import com.corrado4eyes.bokunoheroacademiamultiplatform.runBlocking
-
 
 class NativeAnimeCharacterModel(
     private val viewUpdate: (List<BNHACharacterResponse>) -> Unit,
@@ -29,6 +27,11 @@ class NativeAnimeCharacterModel(
     init {
         ensureNeverFrozen()
     }
+
+    fun onDestroy() {
+        scope.onDestroy()
+    }
+
 
     fun getCharactersList() = scope.launch {
         animeCharacterModel.getAll().collect { it ->
