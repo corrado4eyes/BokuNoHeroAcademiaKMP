@@ -22,12 +22,8 @@ class BNHACharacterCell : UITableViewCell {
     @IBOutlet weak var quirk: UILabel!
     
     // MARK: Business Logic Properties
-    let defaultServiceFactory = DefaultServiceFactory()
     
     private var character: BNHACharacterResponse?
-    lazy var imageHelper: Helper = {
-        return self.defaultServiceFactory.getImageHelper()
-    }()
     
     // MARK: Public Methods
     
@@ -50,14 +46,6 @@ class BNHACharacterCell : UITableViewCell {
     
     private func configureImage(url: String) {
         guard let url = URL(string: url) else { return }
-//        imageHelper.getImage(url: url) { [weak self] result in
-//            switch result {
-//                case .success(let image):
-//                    self?.characterImage.image = UIImage(data: image)
-//                case .failure(let error):
-//                    print(error)
-//            }
-//        }
         characterImage.kf.setImage(with: url)
     }
 }
