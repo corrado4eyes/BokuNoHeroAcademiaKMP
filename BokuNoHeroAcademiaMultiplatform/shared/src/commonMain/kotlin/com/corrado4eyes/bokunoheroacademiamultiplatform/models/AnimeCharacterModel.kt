@@ -2,11 +2,13 @@ package com.corrado4eyes.bokunoheroacademiamultiplatform.models
 
 import co.touchlab.stately.ensureNeverFrozen
 import com.corrado4eyes.bokunoheroacademiamultiplatform.data.characters.BNHACharacterResponse
+import com.corrado4eyes.bokunoheroacademiamultiplatform.db.BNHACharacter
 import com.corrado4eyes.bokunoheroacademiamultiplatform.domain.db.DatabaseHelper
 import com.corrado4eyes.bokunoheroacademiamultiplatform.ktor.BokuNoHeroAcademiaApi
+import kotlinx.coroutines.flow.Flow
 import org.koin.core.KoinComponent
 
-class AnimeCharacterModel(
+open class AnimeCharacterModel(
     private val kTorApi: BokuNoHeroAcademiaApi,
     private val dbHelper: DatabaseHelper
 ) : KoinComponent {
@@ -23,7 +25,7 @@ class AnimeCharacterModel(
         return kTorApi.getCharactersList()
     }
 
-    fun getAll() = dbHelper.selectAllItems()
+    fun getAll(): Flow<List<BNHACharacter>> = dbHelper.getAll()
 
     suspend fun syncDown() = storeNewCharactersInLocalDb(fetchCharacters())
 }
