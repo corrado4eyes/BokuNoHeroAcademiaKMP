@@ -8,12 +8,16 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 
-class DatabaseHelper(sqlDriver: SqlDriver,
+class DatabaseHelper(private val sqlDriver: SqlDriver,
                      private val backgroundDispatcher: CoroutineDispatcher
 ) {
-    private val dbRef: BokuNoHeroAcademiaMultiDb = BokuNoHeroAcademiaMultiDb(sqlDriver)
+    private var dbRef: BokuNoHeroAcademiaMultiDb = BokuNoHeroAcademiaMultiDb(sqlDriver)
 
-    fun selectAllItems(): Flow<List<BNHACharacter>> =
+    fun clearDb() {
+        sqlDriver.close()
+    }
+
+    fun getAll(): Flow<List<BNHACharacter>> =
         dbRef.tableQueries
             .getAll()
             .asFlow()
