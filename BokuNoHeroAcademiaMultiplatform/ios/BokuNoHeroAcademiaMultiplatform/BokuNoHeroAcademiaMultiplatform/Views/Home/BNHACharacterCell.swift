@@ -30,7 +30,6 @@ class BNHACharacterCell : UITableViewCell {
     func configure(character: BNHACharacterResponse) {
         self.character = character
         self.configureCell()
-
     }
     
     // MARK: Private Methods

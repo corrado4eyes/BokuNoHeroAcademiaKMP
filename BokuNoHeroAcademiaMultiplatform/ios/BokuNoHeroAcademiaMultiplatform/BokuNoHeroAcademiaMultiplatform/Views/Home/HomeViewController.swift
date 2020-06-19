@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         animeCharacterModel.getCharactersList()
     }
     
@@ -79,7 +80,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     private func configureTableView() {
         bnhaCharacterTableView.delegate = self
         bnhaCharacterTableView.dataSource = self
-//        bnhaCharacterTableView.register(BNHACharacterCell.self, forCellReuseIdentifier: cellIdentifier)
     }
     
     private func syncDown() {
