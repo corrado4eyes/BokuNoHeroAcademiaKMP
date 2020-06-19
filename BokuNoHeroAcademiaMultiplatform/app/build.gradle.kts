@@ -64,6 +64,8 @@ dependencies {
     val coilVersion: String  by project
     val ktorVersion: String  by project
     val sqlDelightVersion: String by project
+    val mockitoVersion: String by project
+    val coreTestingVersion: String by project
 
     implementation(kotlin("stdlib-jdk7", kotlinVersion))
     implementation(project(":shared"))
@@ -102,6 +104,14 @@ dependencies {
 
     // Tests
     testImplementation("junit:junit:4.13")
+    testImplementation(
+        "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion"
+    )
+    testImplementation(
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+    )
+    testImplementation("androidx.arch.core:core-testing:$coreTestingVersion")
+
     androidTestImplementation("androidx.test.ext:junit:1.1.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
 }
