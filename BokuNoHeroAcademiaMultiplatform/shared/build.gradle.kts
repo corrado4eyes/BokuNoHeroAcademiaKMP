@@ -42,6 +42,11 @@ kotlin {
 
         val kotlinVersion: String by project
         val sqlDelightVersion: String by project
+        val commonKoinVersion: String by project
+        val karmokVersion: String by project
+        val androidxTextExtVersion: String by project
+        val androidxTestVersion: String by project
+        val nativeCoroutinesVersion: String by project
 
         val commonMain by getting {
             dependencies {
@@ -63,10 +68,28 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.3.5")
 
                 // Koin
-                implementation("org.koin:koin-core:3.0.0-alpha-2")
+                implementation("org.koin:koin-core:$commonKoinVersion")
 
                 // SqlDelight
                 implementation("com.squareup.sqldelight:runtime:$sqlDelightVersion")
+            }
+        }
+
+        val commonTest by getting {
+            dependencies {
+                implementation("com.russhwolf:multiplatform-settings-test:0.6")
+                implementation(
+                    "org.jetbrains.kotlin:kotlin-test-common:$kotlinVersion"
+                )
+                implementation(
+                    "org.jetbrains.kotlin:kotlin-test-annotations-common:" +
+                            kotlinVersion
+                )
+                implementation("org.koin:koin-test:$commonKoinVersion")
+                implementation("co.touchlab:karmok-library:$karmokVersion")
+                implementation(
+                    "org.jetbrains.kotlinx:kotlinx-coroutines-test:$nativeCoroutinesVersion"
+                )
             }
         }
 
@@ -92,6 +115,13 @@ kotlin {
             }
         }
 
+        val androidTest by getting {
+            dependencies {
+                implementation("androidx.test.ext:junit:$androidxTextExtVersion")
+                implementation("androidx.test:rules:$androidxTestVersion")
+            }
+        }
+
         val iosMain by getting {
             dependsOn(commonMain)
 
@@ -105,9 +135,9 @@ kotlin {
                 implementation("io.ktor:ktor-client-serialization-native:1.3.2")
 
                 // Coroutines
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:1.3.5-native-mt") {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-native:$nativeCoroutinesVersion") {
                     version {
-                        strictly("1.3.5-native-mt")
+                        strictly(nativeCoroutinesVersion)
                     }
                 }
 
