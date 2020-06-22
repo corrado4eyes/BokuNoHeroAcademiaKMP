@@ -13,7 +13,7 @@ buildscript {
         val koinVersion: String by project
         val sqlDelightVersion: String by project
 
-        classpath("com.android.tools.build:gradle:4.1.0-alpha10")
+        classpath("com.android.tools.build:gradle:4.2.0-alpha02")
         classpath("co.touchlab:kotlinnativecocoapods:0.9")
 
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
