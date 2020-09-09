@@ -6,5 +6,5 @@ https://github.com/AAkira/Kotlin-Multiplatform-Libraries
 https://dev.to/kuuurt/maximizing-code-sharing-between-android-and-ios-with-kotlin-multiplatform-54h8
 https://play.kotlinlang.org/hands-on/Kotlin%20Native%20Concurrency/00_Introduction
 
-### Stupid errors
+### Errors
 In case the IOS app fails at compile time with "Library not loaded: @rpath/shared.framework/shared .... Reason: Image not found.", in `Build Phases > Embedded Frameworks` the shared.framework in `projectRoot/shared/build/bin/ios/debugFramework/shared.framework`.
