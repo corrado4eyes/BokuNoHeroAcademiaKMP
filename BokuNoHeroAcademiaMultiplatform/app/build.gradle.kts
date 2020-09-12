@@ -30,16 +30,18 @@ android {
 
     buildTypes {
 
+        val localIp: String by project
+
         getByName("debug") {
 //            buildConfigField("String", "BASE_URL", "\"http://192.168.1.78:8080\"")
-            buildConfigField("String", "BASE_URL", "\"http://192.168.1.78:8080\"")
+            buildConfigField("String", "BASE_URL", "\"http://$localIp:8080\"")
         }
 
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             // TODO: Change release BASE_URL
-            buildConfigField("String", "BASE_URL", "\"http://192.168.1.78:8080\"")
+            buildConfigField("String", "BASE_URL", "\"http://$localIp:8080\"")
         }
     }
 

@@ -33,7 +33,7 @@ class BokuNoHeroAcademiaApiImpl : BokuNoHeroAcademiaApi {
 
     private fun HttpRequestBuilder.characters(path: String) {
         url {
-            takeFrom("http://192.168.1.78:8080")
+            takeFrom("http://192.168.1.142:8080")
             encodedPath = path
         }
     }
